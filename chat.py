@@ -1,15 +1,8 @@
 import socket
-
+s = socket.socket()
+s.connect(('147.185.221.18',61463))
 while True:
-    s = socket.socket()
-    s.connect(('192.168.140.130',3000))
-
-    info = input("Enter a message: ")
-    s.send(info.encode())
-
-    data = s.recv(1024)
-    if not data:
-        break
-    print(data.decode())
-
-s.close()
+    data = s.recv(1024).decode()
+    print(data)
+    info = input("From Client: ").encode()
+    s.send(info)
