@@ -1,9 +1,0 @@
-/bin/python3 /home/shyhoon/Documents/python/system.py
-import socket
-s = socket.socket()
-s.connect(('localhost',3000))
-while True:
-    data = s.recv(1024).decode()
-    print(data)
-    info = input("Enter a message: ").encode()
-    s.send(info)
